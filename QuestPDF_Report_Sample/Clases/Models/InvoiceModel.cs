@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuestPDF_Report_Sample.Clases
+namespace QuestPDF_Report_Sample.Clases.Models
 {
     public class InvoiceModel
     {

@@ -1,6 +1,7 @@
 ﻿using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
+using QuestPDF_Report_Sample.Clases.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

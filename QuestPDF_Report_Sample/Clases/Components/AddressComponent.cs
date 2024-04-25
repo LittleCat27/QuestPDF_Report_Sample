@@ -8,10 +8,9 @@ using QuestPDF.Drawing;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using QuestPDF_Report_Sample.Clases;
+using QuestPDF_Report_Sample.Clases.Models;
 
-
-namespace QuestPDF_Report_Sample.Clases
+namespace QuestPDF_Report_Sample.Clases.Components
 {
     public class AddressComponent : IComponent
     {
@@ -20,8 +19,8 @@ namespace QuestPDF_Report_Sample.Clases
 
         public AddressComponent(string title, Address address)
         {
-            this.Title = title;
-            this.Address = address;
+            Title = title;
+            Address = address;
         }
         public void Compose(IContainer container)
         {

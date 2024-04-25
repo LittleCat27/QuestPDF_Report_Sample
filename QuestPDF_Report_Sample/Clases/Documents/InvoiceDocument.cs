@@ -2,7 +2,8 @@
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using QuestPDF_Report_Sample.Clases;
+using QuestPDF_Report_Sample.Clases.Components;
+using QuestPDF_Report_Sample.Clases.Models;
 
 public class InvoiceDocument : IDocument
 {
