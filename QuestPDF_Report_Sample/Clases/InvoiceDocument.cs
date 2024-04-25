@@ -45,6 +45,7 @@ public class InvoiceDocument : IDocument
             column.Item().Row(row =>
             {
                 row.RelativeItem().Component(new AddressComponent("Sender", Model.SellerAddress));
+                row.RelativeItem();
             });
 
             column.Spacing(5);
