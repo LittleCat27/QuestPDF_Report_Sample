@@ -76,13 +76,13 @@ public class InvoiceDocument : IDocument
                 column.Item().Text(text =>
                 {
                     text.Span("Primer Vencimiento: ").SemiBold();
-                    text.Span($"{Model.DueDate:d}");
+                    text.Span($"{Model.DueDate:dd/MM/yyyy}"); //Format dd/MM/yyyy to get 01/08/2024 instead of 1/8/2024
                 });
 
                 column.Item().Text(text =>
                 {
                     text.Span("Pago fuera de Termino: ").SemiBold();
-                    text.Span($"{Model.SecondDueDate:d}");
+                    text.Span($"{Model.SecondDueDate:dd/MM/yyyy}");
                 });
             });
 
