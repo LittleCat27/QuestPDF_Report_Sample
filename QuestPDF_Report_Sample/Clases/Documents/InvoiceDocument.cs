@@ -70,7 +70,7 @@ public class InvoiceDocument : IDocument
                 column.Item().Text(text =>
                 {
                     text.Span("Dia de Generación: ").SemiBold();
-                    text.Span($"{Model.IssueDate:d}");
+                    text.Span($"{Model.IssueDate:dd/MM/yyyy}");
                 });
 
                 column.Item().Text(text =>
