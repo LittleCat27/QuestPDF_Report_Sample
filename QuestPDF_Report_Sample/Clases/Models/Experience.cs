@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuestPDF_Report_Sample.Clases.Models
 {
-    internal class Experience
+    public class Experience
     {
         public string? Title { get; set; }
         public string? EndTitleData { get; set; }

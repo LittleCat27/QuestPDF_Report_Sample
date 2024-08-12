@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuestPDF_Report_Sample.Clases.Models
 {
-    internal class ResumeModel
+    public class ResumeModel
     {
         public string? FullName {  get; set; }
         public ContactData? ContactData { get; set; }
