@@ -1,0 +1,117 @@
+﻿using QuestPDF.Helpers;
+using QuestPDF_Report_Sample.Clases.Models;
+
+namespace QuestPDF_Report_Sample.Clases
+{
+    public static class ResumeDocumentDataSource
+    {
+        private static Random Random = new Random();
+
+        public static ResumeModel GetInvoiceDetails()
+        {
+            return new ResumeModel
+            {
+                ContactData = GenerateRandomContactData(),
+                FullName = "JOAQUÍN GREGOIRE",
+                Experience = GenerateExperiences()
+            };
+        }
+
+        private static List<Experience> GenerateExperiences()
+        {
+            List<Experience> experiences = new List<Experience>();
+
+            for (int i = Random.Next(0, 10); i > 10; i--) experiences.Add(GenerateExperience());
+            return experiences;
+        }
+        private static Experience GenerateExperience()
+        {
+
+            Experience experience;
+
+            switch(Random.Next(1, 5))
+            {
+                case 1:
+                    experience = new Experience
+                    {
+                        Title = Placeholders.Name(),
+                        EndTitleData = Placeholders.DateTime(),
+                        SubTitle = Placeholders.Name(),
+                        Description = Placeholders.LoremIpsum(),
+                        Items = GetExperienceItem()
+                    };
+                    break;
+                case 2:
+                    experience = new Experience
+                    {
+                        Title = Placeholders.Name(),
+                        EndTitleData = Placeholders.DateTime(),
+                        SubTitle = Placeholders.Name(),
+                        Description = "",
+                        Items = new List<string>()
+                    };
+                    break;
+                case 3:
+                    experience = new Experience
+                    {
+                        Title = Placeholders.Name(),
+                        EndTitleData = "",
+                        SubTitle = "",
+                        Description = Placeholders.LoremIpsum(),
+                        Items = GetExperienceItem()
+                    };
+                    break;
+                case 4:
+                    experience = new Experience
+                    {
+                        Title = "",
+                        EndTitleData = Placeholders.DateTime(),
+                        SubTitle = Placeholders.Name(),
+                        Description = Placeholders.LoremIpsum(),
+                        Items = new List<string>()
+                    };
+                    break;
+                case 5:
+                    experience = new Experience
+                    {
+                        Title = Placeholders.Name(),
+                        EndTitleData = Placeholders.DateTime(),
+                        SubTitle = "",
+                        Description = "",
+                        Items = GetExperienceItem()
+                    };
+                    break;
+                default:
+                    experience = new Experience
+                    {
+                        Title = "",
+                        EndTitleData = "",
+                        SubTitle = Placeholders.Name(),
+                        Description = "",
+                        Items = GetExperienceItem()
+                    };
+                    break;
+            }
+            return experience;
+        }
+
+        private static List<string> GetExperienceItem()
+        {
+            List<string> items = new List<string>();
+            for (int i = 0; i < 3; i++) items.Add(Placeholders.Paragraphs());
+            return items;
+        }
+        private static ContactData GenerateRandomContactData()
+        {
+            return new ContactData
+            {
+                Country = Placeholders.Name(),
+                Mail = Placeholders.Email(),
+                City = Placeholders.Label(),
+                State = Placeholders.Label(),
+                Phone = Placeholders.PhoneNumber()
+            };
+        }
+
+    }
+}

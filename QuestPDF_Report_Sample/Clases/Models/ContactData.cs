@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuestPDF_Report_Sample.Clases.Models
 {
-    internal class ContactData
+    public class ContactData
     {
         public string? Mail { get; set; }
         public string? City { get; set; }
