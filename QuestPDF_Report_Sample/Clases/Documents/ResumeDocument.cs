@@ -39,12 +39,8 @@ public class ResumeDocument : IDocument
             });
             column.Spacing(5);
             if (Model.Experience != null)
-                foreach(Experience experience in Model.Experience)
-                    column.Item().Row(row =>
-                    {
-                        row.RelativeItem().Component(new ExperienceComponent(experience));
-                        row.RelativeItem();
-                    });
+                foreach (Experience experience in Model.Experience)
+                    column.Item().Component(new ExperienceComponent(experience));
 
         });
     }

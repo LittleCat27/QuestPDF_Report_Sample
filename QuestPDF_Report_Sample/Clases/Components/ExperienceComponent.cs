@@ -22,21 +22,33 @@ namespace QuestPDF_Report_Sample.Clases.Components
         }
         public void Compose(IContainer container)
         {
-            //container.Table(t =>
-            //{
-            //    t.ColumnsDefinition(c =>
-            //    {
-            //        c.RelativeColumn();
-            //        c.RelativeColumn();
-            //    });
-            //    t.Cell().Text("Nombre: ");
-            //    t.Cell().Text(Address.CompanyName);
-            //    t.Cell().Text("Dirección: ");
-            //    t.Cell().Text(Address.Street);
+            container.Row(row =>
+            {
+                row.RelativeItem().Column(column =>
+                {
+                    if (Experience.Title.Length > 0)
+                        column.Item().Row(subRow =>
+                        {
+                            subRow.RelativeItem().Text(Experience.Title).Bold().FontSize(14).Underline();
+                            subRow.AutoItem().AlignLeft().Text(Experience.EndTitleData).FontSize(14);
+                        });
+
+                    if(Experience.SubTitle.Length > 0)
+                        column.Item().Padding(4).Text(Experience.SubTitle).Bold();
+
+                    if(Experience.Description.Length > 0)
+                        column.Item().Padding(4).Text(Experience.Description);
 
 
-
-            //});
+                    if (Experience.Items != null)
+                        foreach (string item in Experience.Items)
+                            column.Item().PaddingLeft(10).Row(subRow =>
+                            {
+                                subRow.AutoItem().Text("* ").Bold().FontSize(16);
+                                subRow.RelativeItem().Text($"{item}");
+                            });
+                });
+            });
 
         }
     }

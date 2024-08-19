@@ -9,19 +9,22 @@ namespace QuestPDF_Report_Sample.Clases
 
         public static ResumeModel GetResumeDetails()
         {
-            return new ResumeModel
+            ResumeModel rm = new ResumeModel
             {
                 ContactData = GenerateRandomContactData(),
                 FullName = "Joaquín Gregoire",
                 Experience = GenerateExperiences()
             };
+
+            return rm;
+            
         }
 
         private static List<Experience> GenerateExperiences()
         {
             List<Experience> experiences = new List<Experience>();
 
-            for (int i = Random.Next(0, 10); i > 10; i--) experiences.Add(GenerateExperience());
+            for (int i = Random.Next(0, 10); i > 0; i--) experiences.Add(GenerateExperience());
             return experiences;
         }
         private static Experience GenerateExperience()
@@ -35,7 +38,7 @@ namespace QuestPDF_Report_Sample.Clases
                     experience = new Experience
                     {
                         Title = Placeholders.Name(),
-                        EndTitleData = Placeholders.DateTime(),
+                        EndTitleData = Placeholders.ShortDate(),
                         SubTitle = Placeholders.Name(),
                         Description = Placeholders.LoremIpsum(),
                         Items = GetExperienceItem()
@@ -45,7 +48,7 @@ namespace QuestPDF_Report_Sample.Clases
                     experience = new Experience
                     {
                         Title = Placeholders.Name(),
-                        EndTitleData = Placeholders.DateTime(),
+                        EndTitleData = Placeholders.ShortDate(),
                         SubTitle = Placeholders.Name(),
                         Description = "",
                         Items = new List<string>()
@@ -65,7 +68,7 @@ namespace QuestPDF_Report_Sample.Clases
                     experience = new Experience
                     {
                         Title = "",
-                        EndTitleData = Placeholders.DateTime(),
+                        EndTitleData = Placeholders.ShortDate(),
                         SubTitle = Placeholders.Name(),
                         Description = Placeholders.LoremIpsum(),
                         Items = new List<string>()
@@ -75,7 +78,7 @@ namespace QuestPDF_Report_Sample.Clases
                     experience = new Experience
                     {
                         Title = Placeholders.Name(),
-                        EndTitleData = Placeholders.DateTime(),
+                        EndTitleData = Placeholders.ShortDate(),
                         SubTitle = "",
                         Description = "",
                         Items = GetExperienceItem()
@@ -98,7 +101,7 @@ namespace QuestPDF_Report_Sample.Clases
         private static List<string> GetExperienceItem()
         {
             List<string> items = new List<string>();
-            for (int i = 0; i < 3; i++) items.Add(Placeholders.Paragraphs());
+            for (int i = 0; i < 3; i++) items.Add(Placeholders.Question());
             return items;
         }
         private static ContactData GenerateRandomContactData()
