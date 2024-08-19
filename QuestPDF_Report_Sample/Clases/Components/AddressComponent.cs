@@ -39,18 +39,6 @@ namespace QuestPDF_Report_Sample.Clases.Components
 
 
             });
-            //container.Background(Colors.Grey.Lighten1).Placeholder();
-
-            //container.Column(c => //TODO Hacer que Los datos queden alineados
-            //{
-            //    c.Spacing(2);
-            //    c.Item().BorderBottom(1).PaddingBottom(3).Text(this.Title).SemiBold();
-            //    c.Item().Text($"Nombre: {Address.CompanyName}");
-            //    c.Item().Text($"Dirección: {Address.Street}");
-            //    c.Item().Text($"{Address.City}, {Address.State}");
-            //    c.Item().Text($"Mail: {Address.Email}");
-            //    c.Item().Text($"Telefono: {Address.Phone}");
-            //});
         }
     }
 }
