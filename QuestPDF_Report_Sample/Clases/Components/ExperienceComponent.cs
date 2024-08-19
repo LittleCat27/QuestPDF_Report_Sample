@@ -14,12 +14,10 @@ namespace QuestPDF_Report_Sample.Clases.Components
 {
     public class ExperienceComponent : IComponent
     {
-        private string Title { get; set; }
         private Experience Experience { get; set; }
 
-        public ExperienceComponent(string title, Experience experience)
+        public ExperienceComponent(Experience experience)
         {
-            Title = title;
             Experience = experience;
         }
         public void Compose(IContainer container)

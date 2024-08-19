@@ -7,12 +7,12 @@ namespace QuestPDF_Report_Sample.Clases
     {
         private static Random Random = new Random();
 
-        public static ResumeModel GetInvoiceDetails()
+        public static ResumeModel GetResumeDetails()
         {
             return new ResumeModel
             {
                 ContactData = GenerateRandomContactData(),
-                FullName = "JOAQUÍN GREGOIRE",
+                FullName = "Joaquín Gregoire",
                 Experience = GenerateExperiences()
             };
         }

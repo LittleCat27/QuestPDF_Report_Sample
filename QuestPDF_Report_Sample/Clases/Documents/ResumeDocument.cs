@@ -23,129 +23,56 @@ public class ResumeDocument : IDocument
         container
             .Page(page =>
             {
-                page.Margin(50);
+                page.Margin(20);
 
                 page.Header().Element(ComposeHeader);
                 page.Content().Element(ComposeContent);
-                //page.Footer().AlignCenter().Text(x =>
-                //{
-                //    x.CurrentPageNumber();
-                //    x.Span(" / ");
-                //    x.TotalPages();
-                //});
             });
     }
     void ComposeContent(IContainer container)
     {
-        //container.PaddingVertical(40).Column(column =>
-        //{
-        //    column.Spacing(5);
+        container.PaddingVertical(0).Column(column =>
+        {
+            column.Item().Text(text =>
+            {
+                text.Span("WORK EXPERIECE").ExtraBold().Underline().FontSize(16);
+            });
+            column.Spacing(5);
+            if (Model.Experience != null)
+                foreach(Experience experience in Model.Experience)
+                    column.Item().Row(row =>
+                    {
+                        row.RelativeItem().Component(new ExperienceComponent(experience));
+                        row.RelativeItem();
+                    });
 
-        //    column.Item().Row(row =>
-        //    {
-        //        row.RelativeItem().Component(new AddressComponent("Sender", Model.SellerAddress));
-        //        row.RelativeItem();
-        //    });
-
-        //    column.Spacing(5);
-
-        //    column.Item().Element(ComposeTable);
-
-        //    if (!string.IsNullOrWhiteSpace(Model.Comments))
-        //        column.Item().PaddingTop(25).Element(ComposeComments);
-        //});
+        });
     }
     void ComposeHeader(IContainer container)
     {
-        //var titleStyle = TextStyle.Default.FontSize(20).SemiBold().FontColor(Colors.Blue.Medium);
+        var titleStyle = TextStyle.Default.FontSize(16).SemiBold();
 
-        //container.Row(row =>
-        //{
-        //    row.RelativeItem().Column(column =>
-        //    {
-        //        column.Item().Text($"Factura #{Model.InvoiceNumber}").Style(titleStyle);
+        container.Row(row =>
+        {
+            row.RelativeItem().Column(column =>
+            {
+                column.Item().AlignCenter().Text($"{Model.FullName}").Style(titleStyle);
 
-        //        column.Item().Text(text =>
-        //        {
-        //            text.Span("Dia de Generación: ").SemiBold();
-        //            text.Span($"{Model.IssueDate:dd/MM/yyyy}");
-        //        });
+                column.Item().AlignCenter().Text(text =>
+                {
+                    if (Model.ContactData != null)
+                        text.Span($"{Model.ContactData.Mail} | {Model.ContactData.City}, {Model.ContactData.Country} | {Model.ContactData.Phone}").FontSize(14);
+                    
+                });
+                column.Item().PaddingVertical(10).BorderBottom(1).BorderColor(Colors.Black);
 
-        //        column.Item().Text(text =>
-        //        {
-        //            text.Span("Primer Vencimiento: ").SemiBold();
-        //            text.Span($"{Model.DueDate:dd/MM/yyyy}"); //Format dd/MM/yyyy to get 01/08/2024 instead of 1/8/2024
-        //        });
-
-        //        column.Item().Text(text =>
-        //        {
-        //            text.Span("Pago fuera de Termino: ").SemiBold();
-        //            text.Span($"{Model.SecondDueDate:dd/MM/yyyy}");
-        //        });
-        //    });
-
-        //    row.ConstantItem(100).Height(50).Placeholder();
-        //});
+            });
+        });
     }
 
-    void ComposeTable(IContainer container)
-    {
-        //container.Table(table =>
-        //{
-        //    // step 1
-        //    table.ColumnsDefinition(columns =>
-        //    {
-        //        columns.ConstantColumn(25);
-        //        columns.RelativeColumn(3);
-        //        columns.RelativeColumn();
-        //        columns.RelativeColumn();
-        //        columns.RelativeColumn();
-        //        columns.RelativeColumn();
-        //    });
 
-        //    // step 2
-        //    table.Header(header =>
-        //    {
-        //        header.Cell().Element(CellStyle).Text("#");
-        //        header.Cell().Element(CellStyle).Text("Producto");
-        //        header.Cell().Element(CellStyle).Text("Color");
-        //        header.Cell().Element(CellStyle).AlignRight().Text("Precio por Unidad");
-        //        header.Cell().Element(CellStyle).AlignRight().Text("Cantidad");
-        //        header.Cell().Element(CellStyle).AlignRight().Text("Total");
 
-        //        static IContainer CellStyle(IContainer container)
-        //        {
-        //            return container.DefaultTextStyle(x => x.SemiBold()).PaddingVertical(5).BorderBottom(1).BorderColor(Colors.Black);
-        //        }
-        //    });
-
-        //    // step 3
-        //    foreach (var item in Model.Items)
-        //    {
-        //        table.Cell().Element(CellStyle).Text(Model.Items.IndexOf(item) + 1);
-        //        table.Cell().Element(CellStyle).Text(item.Name);
-        //        table.Cell().Element(CellStyle).Text(item.Color);
-        //        table.Cell().Element(CellStyle).AlignRight().Text($"{item.Price}$");
-        //        table.Cell().Element(CellStyle).AlignRight().Text(item.Quantity);
-        //        table.Cell().Element(CellStyle).AlignRight().Text($"{item.Price * item.Quantity}$");
-
-        //        static IContainer CellStyle(IContainer container)
-        //        {
-        //            return container.BorderBottom(1).BorderColor(Colors.Grey.Lighten2).PaddingVertical(5);
-        //        }
-        //    }
-        //});
-    }
-
-    //void ComposeComments(IContainer container)
-    //{
-    //    container.Background(Colors.Grey.Lighten3).Padding(10).Column(column =>
-    //    {
-    //        column.Spacing(5);
-    //        column.Item().Text("Comments").FontSize(14);
-    //        column.Item().AlignCenter().Text(Model.Comments);
-    //    });
-    //}
+ 
 
 
 
