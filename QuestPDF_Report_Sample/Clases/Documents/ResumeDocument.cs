@@ -35,7 +35,7 @@ public class ResumeDocument : IDocument
         {
             column.Item().Text(text =>
             {
-                text.Span("WORK EXPERIECE").ExtraBold().Underline().FontSize(16);
+                text.Span("WORK EXPERIECE").ExtraBold().Underline().FontSize(12);
             });
             column.Spacing(5);
             if (Model.Experience != null)
@@ -57,7 +57,11 @@ public class ResumeDocument : IDocument
                 column.Item().AlignCenter().Text(text =>
                 {
                     if (Model.ContactData != null)
-                        text.Span($"{Model.ContactData.Mail} | {Model.ContactData.City}, {Model.ContactData.Country} | {Model.ContactData.Phone}").FontSize(14);
+                    {
+                        text.Hyperlink(Model.ContactData.Mail, $"mailto:{Model.ContactData.Mail}").FontSize(14).Underline().FontColor(Colors.Blue.Medium);
+                        text.Span($" | {Model.ContactData.State}, {Model.ContactData.Country} | ").FontSize(14);
+                        text.Span($"{Model.ContactData.Phone}");
+                    }
                     
                 });
                 column.Item().PaddingVertical(10).BorderBottom(1).BorderColor(Colors.Black);

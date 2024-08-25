@@ -26,11 +26,11 @@ namespace QuestPDF_Report_Sample.Clases.Components
             {
                 row.RelativeItem().Column(column =>
                 {
-                    if (Experience.Title.Length > 0)
+                    if (Experience.Title != null && Experience.Title.Length > 0)
                         column.Item().Row(subRow =>
                         {
-                            subRow.RelativeItem().Text(Experience.Title).Bold().FontSize(14).Underline();
-                            subRow.AutoItem().AlignLeft().Text(Experience.EndTitleData).FontSize(14);
+                            subRow.RelativeItem().Text(Experience.Title).Bold().FontSize(12).Underline();
+                            subRow.AutoItem().AlignLeft().Text(Experience.EndTitleData).FontSize(12);
                         });
 
                     if(Experience.SubTitle.Length > 0)

@@ -9,15 +9,39 @@ namespace QuestPDF_Report_Sample.Clases
 
         public static ResumeModel GetResumeDetails()
         {
+
+            //Random data generated
+            //ResumeModel rm = new ResumeModel
+            //{
+            //    ContactData = GenerateRandomContactData(),
+            //    FullName = "Joaquín Gregoire",
+            //    Experience = GenerateExperiences()
+            //};
+
+
             ResumeModel rm = new ResumeModel
             {
-                ContactData = GenerateRandomContactData(),
+                ContactData = GenerateFixedContactData(),
                 FullName = "Joaquín Gregoire",
                 Experience = GenerateExperiences()
             };
 
+
+
             return rm;
             
+        }
+
+        private static ContactData GenerateFixedContactData()
+        {
+            return new ContactData
+            {
+                Country = "Argentina",
+                Mail = "gregoirejoaquin@gmail.com",
+                City = "Santa Rosa",
+                State = "La Pampa",
+                Phone = "+54-2954-813530"
+            };
         }
 
         private static List<Experience> GenerateExperiences()
