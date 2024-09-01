@@ -23,7 +23,7 @@ namespace QuestPDF_Report_Sample.Clases
             {
                 ContactData = GenerateFixedContactData(),
                 FullName = "Joaquín Gregoire",
-                Experience = GenerateExperiences()
+                Experience = GenerateRealExperiences()
             };
 
 
@@ -42,6 +42,100 @@ namespace QuestPDF_Report_Sample.Clases
                 State = "La Pampa",
                 Phone = "+54-2954-813530"
             };
+        }
+        private static List<Experience> GenerateRealExperiences()
+        {
+            List<Experience> e = new List<Experience>
+            {
+                new Experience
+                {
+                    Title = "SEMPRE",
+                    EndTitleData = "2022-Present",
+                    SubTitle = "Developer Full-Stack and Junior Analyst, helped with the migration of web-based applications.",
+                    Description = "",
+                    Items = new List<string>
+                    {
+                        "Not only made the necesary changes on migration, but added better user experience with design.",
+                        "Applied SCRUM Metodology for a strong comunication with clients and final users.",
+                        "Made needed Rest API on .Net, and used the standard JSON Web Token Bearer Security.",
+                        "Wrote Object Oriented generic code, for clean future modifications.",
+                        "Worked with a specialiced repository like GitHub based IDE."
+                    }
+                },
+                new Experience
+                {
+                    Title = "",
+                    EndTitleData = "",
+                    SubTitle = "Made a Accounting & Afiliate web application, understanding legacy Dbs, adapting to new standards.",
+                    Description = "",
+                    Items = new List<string>
+                    {
+                        "Develop funcionallity to consume a SOAP HTTP Web-Service.",
+                        "Made dynamic PDF and Excel Reports.",
+                        "Created proceses to process legacy files, like old csv reports and other types.",
+                        "Learned to create, export and modify tables, with high data quantity.",
+                    }
+                },
+                new Experience
+                {
+                    Title = "EDUCATION",
+                    EndTitleData = "2020-2024",
+                    SubTitle = "COMPUTER SCIENCE",
+                    Description = "EN: Higher technician in software development - ES: Tecnico superior en Desarrollo de Software",
+                    Items = new List<string>
+                    {
+                        "Learned Object Oriented Code, with C#, implementing desing patterns and good code atomization.",
+                        "Used broad diagrams types, like UML, DCU, ER, etc.",
+                        "Irl practice with arduino and related robotic programs like proteus, tinkercad, etc.",
+                        "Made inventory system divided on two parts, backend (API), and frontend (VUE)."
+                    }
+                },
+                new Experience
+                {
+                    Title = "",
+                    EndTitleData = "",
+                    SubTitle = "Other Certificates",
+                    Description = "",
+                    Items = new List<string>
+                    {
+                        "Genexus 17 Junior Analyst",
+                        "WorkWithPlus Analyst",
+                        "SCRUM Certificate"
+                    }
+                },
+                new Experience
+                {
+                    Title = "PROFICIENCIES",
+                    EndTitleData = "",
+                    SubTitle = "Worked with:",
+                    Description = "POSTMAN, SOAP UI, DBeaver, Fork, Visual Studio, Arduino IDE, Visual Code, Draw.io, Genexus, Excel, VUE and related."
+                }
+,
+                new Experience
+                {
+                    Title = "",
+                    EndTitleData = "",
+                    SubTitle = "Know the basic / Have an idea of:",
+                    Description = "Docker, Linux, Business Inteligence using Visual Studio SSAS project, Android Studio, .NET MAUI, Windows Forms, Python, etc."
+                },
+                new Experience
+                {
+                    Title = "SKILLS & INTERESTS",
+                    EndTitleData = "",
+                    SubTitle = "",
+                    Description = "Want to learn more about: SQL, .NET Framework, Linux, Docker, etc."
+                },
+                new Experience
+                {
+                    Title = "",
+                    EndTitleData = "",
+                    SubTitle = "",
+                    Description = "Other: Like cats, practicing ceramic and want to perfect my english."
+                }
+            };
+
+
+            return e;
         }
 
         private static List<Experience> GenerateExperiences()

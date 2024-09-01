@@ -33,10 +33,10 @@ namespace QuestPDF_Report_Sample.Clases.Components
                             subRow.AutoItem().AlignLeft().Text(Experience.EndTitleData).FontSize(12);
                         });
 
-                    if(Experience.SubTitle.Length > 0)
+                    if(Experience.SubTitle != null && Experience.SubTitle.Length > 0)
                         column.Item().Padding(4).Text(Experience.SubTitle).Bold();
 
-                    if(Experience.Description.Length > 0)
+                    if(Experience.Description != null && Experience.Description.Length > 0)
                         column.Item().Padding(4).Text(Experience.Description);
 
 
@@ -44,7 +44,7 @@ namespace QuestPDF_Report_Sample.Clases.Components
                         foreach (string item in Experience.Items)
                             column.Item().PaddingLeft(10).Row(subRow =>
                             {
-                                subRow.AutoItem().Text("* ").Bold().FontSize(16);
+                                subRow.AutoItem().Text("*   ").Bold();
                                 subRow.RelativeItem().Text($"{item}");
                             });
                 });
